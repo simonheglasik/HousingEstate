@@ -1,0 +1,11 @@
+C:\Users\Spravca\source\repos\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.exe
+C:\Users\Spravca\source\repos\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.deps.json
+C:\Users\Spravca\source\repos\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.runtimeconfig.json
+C:\Users\Spravca\source\repos\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.runtimeconfig.dev.json
+C:\Users\Spravca\source\repos\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.dll
+C:\Users\Spravca\source\repos\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.pdb
+C:\Users\Spravca\source\repos\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.csprojAssemblyReference.cache
+C:\Users\Spravca\source\repos\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.AssemblyInfoInputs.cache
+C:\Users\Spravca\source\repos\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.AssemblyInfo.cs
+C:\Users\Spravca\source\repos\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.dll
+C:\Users\Spravca\source\repos\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.pdb
