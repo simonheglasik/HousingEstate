@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Spravca\\source\\repos\\HousingEstate\\HousingEstate.csproj",
+      "projectUniqueName": "C:\\Users\\Spravca\\source\\OpenLab-Ulohy\\HousingEstate\\HousingEstate\\HousingEstate.csproj",
       "projectName": "HousingEstate",
-      "projectPath": "C:\\Users\\Spravca\\source\\repos\\HousingEstate\\HousingEstate.csproj",
+      "projectPath": "C:\\Users\\Spravca\\source\\OpenLab-Ulohy\\HousingEstate\\HousingEstate\\HousingEstate.csproj",
       "packagesPath": "C:\\Users\\Spravca\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Spravca\\source\\repos\\HousingEstate\\obj\\",
+      "outputPath": "C:\\Users\\Spravca\\source\\OpenLab-Ulohy\\HousingEstate\\HousingEstate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

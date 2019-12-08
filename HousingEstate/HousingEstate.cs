@@ -23,27 +23,27 @@ namespace HousingEstate
                 new BlockOfFlats(1),
                 new BlockOfFlats(2)
             };
-            for(int i = 1; i <= blocks.Count; i++)
+            for (int i = 1; i <= blocks.Count; i++)
             {
-                for (int entrcs = 1;entrcs <= 12;entrcs++)
+                for (int entrcs = 1; entrcs <= 12; entrcs++)
                 {
-                    entrances.Add(new Entrance(entrcs * 2,i));
+                    entrances.Add(new Entrance(entrcs * 2, i));
                     for (int flrs = 1; flrs <= 7; flrs++)
                     {
-                        floors.Add(new Floor(flrs,entrcs * 2,i ));
+                        floors.Add(new Floor(flrs, entrcs * 2, i));
                         for (int flts = 1; flts <= 4; flts++)
                         {
                             flats.Add(new Flat(flts, flrs, entrcs * 2, i));
                             for (int n = 0; n < 4; n++)
                             {
-                                persons.Add(gen.CreatePerson(i + 1, (entrcs + 1)*2, flrs + 1, flts + 1));
+                                persons.Add(gen.CreatePerson(i + 1, (entrcs + 1) * 2, flrs + 1, flts + 1));
                             }
                         }
                     }
                 }
             }
         }
-        public void Show() 
+        public void Show()
         {
             ShowBlocks();
             int blck = int.Parse(Console.ReadLine());
@@ -54,18 +54,25 @@ namespace HousingEstate
             ShowFlats(blck, ent, flr);
             int flt = int.Parse(Console.ReadLine());
             ShowPeople(blck, ent, flr, flt);
-            
         }
         public void MovePerson()
         {
             Show();
-            foreach(var person in persons)
+            Console.WriteLine("Select person");
+            string input = Console.ReadLine();
+            foreach (var person in persons)
             {
                 string name = $"{person.FirstName} {person.LastName}";
-                if(name == Console.ReadLine())
+                if (input.Contains(person.FirstName) && input.Contains(person.LastName))
                 {
                     int blck = int.Parse(Console.ReadLine());
-
+                    ShowEntrances(blck);
+                    int ent = int.Parse(Console.ReadLine());
+                    ShowFloors(blck, ent);
+                    int flr = int.Parse(Console.ReadLine());
+                    ShowFlats(blck, ent, flr);
+                    int flt = int.Parse(Console.ReadLine());
+                    person.Move(blck, ent, flr, flt);
                 }
             }
         }
@@ -78,12 +85,18 @@ namespace HousingEstate
         }
         public void ShowEntrances(int blck)
         {
+            List<int> ent = new List<int>();
             foreach (var entrance in entrances)
             {
                 if (blck == entrance.Block)
                 {
+                    ent.Add(entrance.Number);
                     Console.WriteLine($"{entrance.Number}.Entrance");
                 }
+            }
+            if (ent.Count == 0)
+            {
+                Console.WriteLine("This block does not exist");
             }
         }
         public void ShowFloors(int blck, int ent)
@@ -118,4 +131,3 @@ namespace HousingEstate
         }
     }
 }
-

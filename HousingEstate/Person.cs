@@ -13,7 +13,7 @@ namespace HousingEstate
         public int Floor { get; set; }
         public int Entrance { get; set; }
         public int Block { get; set; }
-        public Person( string firstname , string lastname , int age , int flat , int floor,int entrance ,int block)
+        public Person(string firstname, string lastname, int age, int flat, int floor, int entrance, int block)
         {
             FirstName = firstname;
             LastName = lastname;
@@ -23,16 +23,12 @@ namespace HousingEstate
             Entrance = entrance;
             Block = block;
         }
-        public void Move(string blocks , string entrances , string floors , string flats)
+        public void Move(int block, int entrance, int floor, int flat)
         {
-            Console.WriteLine(blocks);
-            Block = int.Parse(Console.ReadLine());
-            Console.WriteLine(entrances);
-            Entrance = int.Parse(Console.ReadLine());
-            Console.WriteLine(floors);
-            Floor = int.Parse(Console.ReadLine());
-            Console.WriteLine(flats);
-            Flat = int.Parse(Console.ReadLine());
+            Block = block;
+            Entrance = entrance;
+            Floor = floor;
+            Flat = flat;
         }
     }
 }
