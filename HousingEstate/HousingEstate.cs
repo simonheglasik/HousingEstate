@@ -85,18 +85,25 @@ namespace HousingEstate
         }
         public void ShowEntrances(int blck)
         {
+            int a = 1;
             List<int> ent = new List<int>();
-            foreach (var entrance in entrances)
+            for (int i = 0; i < a; i++)
             {
-                if (blck == entrance.Block)
+                foreach (var entrance in entrances)
                 {
-                    ent.Add(entrance.Number);
-                    Console.WriteLine($"{entrance.Number}.Entrance");
+                    if (blck.ToString() == entrance.Block.ToString())
+                    {
+                        ent.Add(entrance.Number);
+                        Console.WriteLine($"{entrance.Number}.Entrance");
+                    }
                 }
-            }
-            if (ent.Count == 0)
-            {
-                Console.WriteLine("This block does not exist");
+                if (ent.Count == 0)
+                {
+                    Console.WriteLine("This block does not exist");
+                    ShowBlocks();
+                    blck = int.Parse(Console.ReadLine());
+                    a++;
+                }
             }
         }
         public void ShowFloors(int blck, int ent)

@@ -8,23 +8,25 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Spravca\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\openlab\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Spravca\\source\\OpenLab-Ulohy\\HousingEstate\\HousingEstate\\HousingEstate.csproj",
+      "projectUniqueName": "C:\\Users\\openlab\\Source\\Repos\\HousingEstate\\HousingEstate\\HousingEstate.csproj",
       "projectName": "HousingEstate",
-      "projectPath": "C:\\Users\\Spravca\\source\\OpenLab-Ulohy\\HousingEstate\\HousingEstate\\HousingEstate.csproj",
-      "packagesPath": "C:\\Users\\Spravca\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Spravca\\source\\OpenLab-Ulohy\\HousingEstate\\HousingEstate\\obj\\",
+      "projectPath": "C:\\Users\\openlab\\Source\\Repos\\HousingEstate\\HousingEstate\\HousingEstate.csproj",
+      "packagesPath": "C:\\Users\\openlab\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\openlab\\Source\\Repos\\HousingEstate\\HousingEstate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Spravca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\openlab\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
