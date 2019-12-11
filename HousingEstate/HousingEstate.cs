@@ -76,14 +76,14 @@ namespace HousingEstate
                 }
             }
         }
-        public void ShowBlocks()
+        private void ShowBlocks()
         {
             foreach (var block in blocks)
             {
                 Console.WriteLine($"{block.NumberOfblock}.Block");
             }
         }
-        public void ShowEntrances(int blck)
+        private void ShowEntrances(int blck)
         {
             int a = 1;
             List<int> ent = new List<int>();
@@ -91,7 +91,7 @@ namespace HousingEstate
             {
                 foreach (var entrance in entrances)
                 {
-                    if (blck.ToString() == entrance.Block.ToString())
+                    if (blck == entrance.Block)
                     {
                         ent.Add(entrance.Number);
                         Console.WriteLine($"{entrance.Number}.Entrance");
@@ -106,27 +106,58 @@ namespace HousingEstate
                 }
             }
         }
-        public void ShowFloors(int blck, int ent)
+        private void ShowFloors(int blck, int ent)
         {
-            foreach (var floor in floors)
+            int a = 1;
+            List<int> flr = new List<int>();
+            for (int i = 0; i < a; i++)
             {
-                if (blck == floor.Block && ent == floor.Enter)
+                foreach (var floor in floors)
                 {
-                    Console.WriteLine($"{floor.Number}.Floor");
+                    if (blck == floor.Block && ent == floor.Enter)
+                    {
+                        flr.Add(floor.Number);
+                        Console.WriteLine($"{floor.Number}.Floor");
+                    }
+                }
+                if(flr.Count == 0)
+                {
+                    Console.WriteLine("This entrance does not exist");
+                    ShowBlocks();
+                    blck = int.Parse(Console.ReadLine());
+                    ShowEntrances(blck);
+                    ent = int.Parse(Console.ReadLine());
+                    a++;
                 }
             }
         }
-        public void ShowFlats(int blck, int ent, int flr)
+        private void ShowFlats(int blck, int ent, int flr)
         {
-            foreach (var flat in flats)
+            int a = 1;
+            List<int> flt = new List<int>();
+            for (int i = 0; i < a; i++)
             {
-                if (blck == flat.Block && ent == flat.Entrance && flr == flat.Floor)
+                foreach (var flat in flats)
                 {
-                    Console.WriteLine($"{flat.Number}.Flat");
+                    if (blck == flat.Block && ent == flat.Entrance && flr == flat.Floor)
+                    {
+                        flt.Add(flat.Number);
+                        Console.WriteLine($"{flat.Number}.Flat");
+                    }
+                }
+                if (flt.Count == 0)
+                {
+                    Console.WriteLine("This floor does not exist");
+                    ShowBlocks();
+                    blck = int.Parse(Console.ReadLine());
+                    ShowEntrances(blck);
+                    ent = int.Parse(Console.ReadLine());
+                    ShowFloors(blck, ent);
+                    flr = int.Parse(Console.ReadLine());
                 }
             }
         }
-        public void ShowPeople(int blck, int ent, int flr, int flt)
+        private void ShowPeople(int blck, int ent, int flr, int flt)
         {
             foreach (var person in persons)
             {
