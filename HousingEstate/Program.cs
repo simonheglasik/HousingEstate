@@ -9,7 +9,13 @@ namespace HousingEstate
             var he = new HousingEstate();
             while (true)
             {
-                he.Show();
+                he.MovePerson();
+                while (true)
+                {
+                    he.Show();
+                    Console.ReadKey();
+                    Console.Clear();
+                }
             }
         }
     }

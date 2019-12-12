@@ -42,3 +42,14 @@ C:\Users\Spravca\source\OpenLab-Ulohy\HousingEstate2\HousingEstate\obj\Debug\net
 C:\Users\Spravca\source\OpenLab-Ulohy\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.AssemblyInfo.cs
 C:\Users\Spravca\source\OpenLab-Ulohy\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.dll
 C:\Users\Spravca\source\OpenLab-Ulohy\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.pdb
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.exe
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.deps.json
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.runtimeconfig.json
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.runtimeconfig.dev.json
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.dll
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\bin\Debug\netcoreapp3.0\HousingEstate.pdb
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.csprojAssemblyReference.cache
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.AssemblyInfoInputs.cache
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.AssemblyInfo.cs
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.dll
+C:\Users\openlab\Source\Repos\HousingEstate2\HousingEstate\obj\Debug\netcoreapp3.0\HousingEstate.pdb

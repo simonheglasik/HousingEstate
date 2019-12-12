@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace HousingEstate
 {
@@ -46,13 +46,27 @@ namespace HousingEstate
         public void Show()
         {
             ShowBlocks();
-            int blck = int.Parse(Console.ReadLine());
-            ShowEntrances(blck);
-            int ent = int.Parse(Console.ReadLine());
-            ShowFloors(blck, ent);
-            int flr = int.Parse(Console.ReadLine());
-            ShowFlats(blck, ent, flr);
-            int flt = int.Parse(Console.ReadLine());
+
+            if (!int.TryParse(Console.ReadLine(), out int blck))
+                return;
+
+            if (!ShowEntrances(blck))
+                return;
+
+            if (!int.TryParse(Console.ReadLine(), out int ent))
+                return;
+
+            if (!ShowFloors(blck, ent))
+                return;
+
+            if(!int.TryParse(Console.ReadLine(), out int flr))
+                return;
+
+            if (!ShowFlats(blck, ent, flr))
+                return;
+
+            if (!int.TryParse(Console.ReadLine(), out int flt))
+                return;
             ShowPeople(blck, ent, flr, flt);
         }
         public void MovePerson()
@@ -65,13 +79,27 @@ namespace HousingEstate
                 string name = $"{person.FirstName} {person.LastName}";
                 if (input.Contains(person.FirstName) && input.Contains(person.LastName))
                 {
-                    int blck = int.Parse(Console.ReadLine());
-                    ShowEntrances(blck);
-                    int ent = int.Parse(Console.ReadLine());
-                    ShowFloors(blck, ent);
-                    int flr = int.Parse(Console.ReadLine());
-                    ShowFlats(blck, ent, flr);
-                    int flt = int.Parse(Console.ReadLine());
+                    ShowBlocks();
+                    if (!int.TryParse(Console.ReadLine(), out int blck))
+                        return;
+
+                    if (!ShowEntrances(blck))
+                        return;
+
+                    if (!int.TryParse(Console.ReadLine(), out int ent))
+                        return;
+
+                    if (!ShowFloors(blck, ent))
+                        return;
+
+                    if (!int.TryParse(Console.ReadLine(), out int flr))
+                        return;
+
+                    if (!ShowFlats(blck, ent, flr))
+                        return;
+
+                    if (!int.TryParse(Console.ReadLine(), out int flt))
+                        return;
                     person.Move(blck, ent, flr, flt);
                 }
             }
@@ -83,79 +111,32 @@ namespace HousingEstate
                 Console.WriteLine($"{block.NumberOfblock}.Block");
             }
         }
-        private void ShowEntrances(int blck)
+        private bool ShowEntrances(int blck)
         {
-            int a = 1;
-            List<int> ent = new List<int>();
-            for (int i = 0; i < a; i++)
-            {
-                foreach (var entrance in entrances)
-                {
-                    if (blck == entrance.Block)
-                    {
-                        ent.Add(entrance.Number);
-                        Console.WriteLine($"{entrance.Number}.Entrance");
-                    }
-                }
-                if (ent.Count == 0)
-                {
-                    Console.WriteLine("This block does not exist");
-                    ShowBlocks();
-                    blck = int.Parse(Console.ReadLine());
-                    a++;
-                }
-            }
+            var validEntrances = entrances.Where(en => en.Block == blck);
+
+            foreach (var entrance in validEntrances)
+                Console.WriteLine($"{entrance.Number}.Entrance");
+            
+            return validEntrances.Any();
         }
-        private void ShowFloors(int blck, int ent)
+        private bool ShowFloors(int blck, int ent)
         {
-            int a = 1;
-            List<int> flr = new List<int>();
-            for (int i = 0; i < a; i++)
-            {
-                foreach (var floor in floors)
-                {
-                    if (blck == floor.Block && ent == floor.Enter)
-                    {
-                        flr.Add(floor.Number);
-                        Console.WriteLine($"{floor.Number}.Floor");
-                    }
-                }
-                if(flr.Count == 0)
-                {
-                    Console.WriteLine("This entrance does not exist");
-                    ShowBlocks();
-                    blck = int.Parse(Console.ReadLine());
-                    ShowEntrances(blck);
-                    ent = int.Parse(Console.ReadLine());
-                    a++;
-                }
-            }
+            var validFloors = floors.Where(fl => blck == fl.Block && ent == fl.Enter);
+
+            foreach (var floor in validFloors)
+                Console.WriteLine($"{floor.Number}.Floor");
+
+            return validFloors.Any();
         }
-        private void ShowFlats(int blck, int ent, int flr)
+        private bool ShowFlats(int blck , int ent, int flr)
         {
-            int a = 1;
-            List<int> flt = new List<int>();
-            for (int i = 0; i < a; i++)
-            {
-                foreach (var flat in flats)
-                {
-                    if (blck == flat.Block && ent == flat.Entrance && flr == flat.Floor)
-                    {
-                        flt.Add(flat.Number);
-                        Console.WriteLine($"{flat.Number}.Flat");
-                    }
-                }
-                if (flt.Count == 0)
-                {
-                    Console.WriteLine("This floor does not exist");
-                    ShowBlocks();
-                    blck = int.Parse(Console.ReadLine());
-                    ShowEntrances(blck);
-                    ent = int.Parse(Console.ReadLine());
-                    ShowFloors(blck, ent);
-                    flr = int.Parse(Console.ReadLine());
-                }
-            }
+            var validFlats = flats.Where(ft => blck == ft.Block && ent == ft.Entrance && flr == ft.Floor);
+
+            foreach (var flat in validFlats)
+                Console.WriteLine($"{flat.Number}.Flat");
+
+            return validFlats.Any();
         }
         private void ShowPeople(int blck, int ent, int flr, int flt)
         {
