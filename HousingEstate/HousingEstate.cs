@@ -69,6 +69,8 @@ namespace HousingEstate
                 return;
             ShowPeople(blck, ent, flr, flt);
         }
+
+
         public void MovePerson()
         {
             Show();
@@ -104,12 +106,15 @@ namespace HousingEstate
                 }
             }
         }
-        private void ShowBlocks()
+        private int ShowBlocks()
         {
             foreach (var block in blocks)
             {
                 Console.WriteLine($"{block.NumberOfblock}.Block");
             }
+            if (!int.TryParse(Console.ReadLine(), out int blck))
+                return???;
+            return blck;
         }
         private bool ShowEntrances(int blck)
         {

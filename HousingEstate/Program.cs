@@ -13,8 +13,7 @@ namespace HousingEstate
                 while (true)
                 {
                     he.Show();
-                    Console.ReadKey();
-                    Console.Clear();
+
                 }
             }
         }
