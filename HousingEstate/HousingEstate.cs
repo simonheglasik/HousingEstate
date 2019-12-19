@@ -43,6 +43,19 @@ namespace HousingEstate
                 }
             }
         }
+        public void HoboMaker()
+        {
+            foreach(var person1 in persons)
+            {
+                foreach(var person2 in persons)
+                {
+                    if(person1.Block == person2.Block && person1.Entrance == person2.Entrance && person1.Floor == person2.Floor && person1.Flat == person2.Flat)
+                    {
+                        
+                    }
+                }
+            }
+        }
         public void Show()
         {
             ShowBlocks();
@@ -73,48 +86,71 @@ namespace HousingEstate
 
         public void MovePerson()
         {
-            Show();
-            Console.WriteLine("Select person");
-            string input = Console.ReadLine();
-            foreach (var person in persons)
+            int a = 1;
+            string input = "";
+            int block = 0;
+            int entrance = 0;
+            int floor = 0;
+            int flat = 0;
+            for (int i = 0; i < a; i++)
             {
-                string name = $"{person.FirstName} {person.LastName}";
-                if (input.Contains(person.FirstName) && input.Contains(person.LastName))
+                ShowBlocks();
+                if (!int.TryParse(Console.ReadLine(), out int blck))
+                    return;
+
+                if (!ShowEntrances(blck))
+                    return;
+
+                if (!int.TryParse(Console.ReadLine(), out int ent))
+                    return;
+
+                if (!ShowFloors(blck, ent))
+                    return;
+
+                if (!int.TryParse(Console.ReadLine(), out int flr))
+                    return;
+
+                if (!ShowFlats(blck, ent, flr))
+                    return;
+
+                if (!int.TryParse(Console.ReadLine(), out int flt))
+                    return;
+                ShowPeople(blck, ent, flr, flt);
+                if (a == 1)
                 {
-                    ShowBlocks();
-                    if (!int.TryParse(Console.ReadLine(), out int blck))
-                        return;
-
-                    if (!ShowEntrances(blck))
-                        return;
-
-                    if (!int.TryParse(Console.ReadLine(), out int ent))
-                        return;
-
-                    if (!ShowFloors(blck, ent))
-                        return;
-
-                    if (!int.TryParse(Console.ReadLine(), out int flr))
-                        return;
-
-                    if (!ShowFlats(blck, ent, flr))
-                        return;
-
-                    if (!int.TryParse(Console.ReadLine(), out int flt))
-                        return;
-                    person.Move(blck, ent, flr, flt);
+                    Console.WriteLine("Select person");
+                    input = Console.ReadLine();
+                    block = blck;
+                    entrance = ent;
+                    floor = flr;
+                    flat = flt;
                 }
+                foreach (var person in persons)
+                {
+                    if (input.ToLower().Contains(person.FirstName.ToLower()) && input.ToLower().Contains(person.LastName.ToLower()) && block == person.Block && entrance == person.Entrance && floor == person.Floor && flat == person.Flat)
+                    {
+                        
+                        if (a == 2)
+                            person.Move(blck, ent, flr, flt);
+                        a++;
+                    }
+                }
+                if (a == 1)
+                {
+                    Console.WriteLine("This person doesn't exist.");
+                    i--;
+                }
+
             }
+        
+            
         }
-        private int ShowBlocks()
+        private void ShowBlocks()
         {
             foreach (var block in blocks)
             {
                 Console.WriteLine($"{block.NumberOfblock}.Block");
             }
-            if (!int.TryParse(Console.ReadLine(), out int blck))
-                return???;
-            return blck;
         }
         private bool ShowEntrances(int blck)
         {
