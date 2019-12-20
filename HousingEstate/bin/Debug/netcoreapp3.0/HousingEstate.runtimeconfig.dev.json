@@ -1,10 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\openlab\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\openlab\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\z18ista04\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\z18ista04\\.nuget\\packages"
     ]
   }
 }

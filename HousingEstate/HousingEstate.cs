@@ -34,7 +34,7 @@ namespace HousingEstate
                         for (int flts = 1; flts <= 4; flts++)
                         {
                             flats.Add(new Flat(flts, flrs, entrcs * 2, i));
-                            for (int n = 0; n < 4; n++)
+                            for (int n = 0; n < 2; n++)
                             {
                                 persons.Add(gen.CreatePerson(i + 1, (entrcs + 1) * 2, flrs + 1, flts + 1));
                             }
@@ -42,20 +42,31 @@ namespace HousingEstate
                     }
                 }
             }
-        }
-        public void HoboMaker()
-        {
-            foreach(var person1 in persons)
+            foreach(var flat in flats)
             {
-                foreach(var person2 in persons)
+                foreach (var person in persons)
                 {
-                    if(person1.Block == person2.Block && person1.Entrance == person2.Entrance && person1.Floor == person2.Floor && person1.Flat == person2.Flat)
+                    if (IsFlatFull(flat,person) == true)
                     {
-                        
+                        person.Flat = 0;
                     }
                 }
             }
+        }   
+        public bool IsFlatFull(Flat flat , Person person)
+        {
+            int a = 0;
+                    if(person.Flat == flat.Number && person.Floor == flat.Floor && person.Entrance == flat.Entrance && person.Block == flat.Block)
+                    {
+                        a++;
+                        if (a > 4)
+                        {
+                            return true;
+                        }
+                    }
+            return false;
         }
+        
         public void Show()
         {
             ShowBlocks();
@@ -109,9 +120,14 @@ namespace HousingEstate
 
                 if (!int.TryParse(Console.ReadLine(), out int flr))
                     return;
-
-                if (!ShowFlats(blck, ent, flr))
-                    return;
+                if(a == 1)
+                {
+                    if (!NoShowFullFlats(blck, ent, flr))
+                        return;
+                }
+                else
+                    if (!ShowFlats(blck, ent, flr))
+                        return;
 
                 if (!int.TryParse(Console.ReadLine(), out int flt))
                     return;
@@ -140,10 +156,7 @@ namespace HousingEstate
                     Console.WriteLine("This person doesn't exist.");
                     i--;
                 }
-
             }
-        
-            
         }
         private void ShowBlocks()
         {
@@ -177,6 +190,17 @@ namespace HousingEstate
             foreach (var flat in validFlats)
                 Console.WriteLine($"{flat.Number}.Flat");
 
+            return validFlats.Any();
+        }
+        private bool NoShowFullFlats(int blck, int ent, int flr)
+        {
+            var validFlats = flats.Where(ft => blck == ft.Block && ent == ft.Entrance && flr == ft.Floor);
+            foreach (var flat in validFlats)
+                foreach (var person in persons)
+                    if (IsFlatFull(flat, person) == false)
+                    {
+                        Console.WriteLine($"{flat.Number}.Flat");
+                    }
             return validFlats.Any();
         }
         private void ShowPeople(int blck, int ent, int flr, int flt)
